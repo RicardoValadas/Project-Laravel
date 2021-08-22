@@ -14,19 +14,21 @@ class FlowerSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('store')->insert([
+        DB::table('flowers')->insert([
             'name' => 'GoodFlower',
             'price' => '300'
         ]);
 
-        DB::table('store')->insert([
+        DB::table('flowers')->insert([
             'name' => 'BadFlower',
-            'price' => '200'
+            'price' => '200',
+            'columns' => 'Asteraceae'
         ]);
 
-        DB::table('store')->insert([
+        DB::table('flowers')->insert([
             'name' => 'UglyFlower',
-            'price' => '400'
+            'price' => '400',
+            'columns' => 'Asteraceae'
         ]);
     }
 }

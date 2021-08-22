@@ -6,9 +6,16 @@
         <div class="card-body">
             <h5 class="card-title">{{ $flower->name }}</h5>
             <p class="card-text">The flower price is {{ $flower->price }}</p>
-
-
+            {{-- @foreach ($comments as $comment)
+                <p>Subject : {{ $comment->subject }}</p>
+                <p>Message : {{ $comment->message }}</p>
+            @endforeach --}}
         </div>
+    </div>
+    <div>
+        <p>
+            {{ $type->columns }}
+        </p>
     </div>
 
 @endsection

@@ -19,6 +19,7 @@
                 <a href="{{ route('flower.detail', [$f->id]) }}">Detail</a>
             </p>
 
+
         @endforeach
 
     @else

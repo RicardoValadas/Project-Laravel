@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\FlowerController;
+
 
 
 /*
@@ -28,6 +30,8 @@ route::get('/movies/{id}', [MovieController::class, 'one_movie']);
 
 //routes para criar paginas e posso usar uma function que esta depois de class,
 route::get('/', [FlowerController::class, 'index']);
+route::get('/flower', [FlowerController::class, 'index']);
+
 
 route::get('/new-flower', [FlowerController::class, 'create']);
 route::post('/new-flower', [FlowerController::class, 'store']);
@@ -41,3 +45,6 @@ Route::get('/delete/flower/{id}', [FlowerController::class, 'destroy'])->name('d
 
 //display flower detail
 Route::get('/flower-detail/{id}', [FlowerController::class, 'show'])->name('flower.detail');
+//API
+route::get('/api', [ApiController::class, 'getFlowers']);
+Route::get('/api/detail', [ApiController::class, 'getType']);

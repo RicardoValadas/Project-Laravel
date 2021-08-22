@@ -80,6 +80,7 @@ class FlowerController extends Controller
         //$oneFlower = DB::select('SELECT * FROM flowers WHERE id = ?', [$id]); 
         $oneFlower = Flower::where('id', $id)
             ->get();
+
         //dd($oneFlower[0]->comments);
         return view('flower-detail', ['flower' => $oneFlower[0]]);
     }
