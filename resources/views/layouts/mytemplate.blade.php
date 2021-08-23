@@ -19,7 +19,7 @@
 
 <body class="p-3 mb-2 text-dark">
     @include('layouts.nav')
-
+    @yield('register')
     @yield('flower-detail')
     @yield('flowers')
     @yield('form')
@@ -28,11 +28,8 @@
         @yield('content')
     </div>
 
-    <footer>
-        <!-- put footer here -->
-    </footer>
-    </nav>
 
+    @yield('script')
 </body>
 
 </html>

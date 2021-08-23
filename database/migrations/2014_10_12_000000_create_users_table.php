@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStoreTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateStoreTable extends Migration
      */
     public function up()
     {
-        Schema::create('flowers', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('price');
-            $table->blob('image');
-            $table->enum('columns', ['Magnoliophyta', 'Asteraceae']);
-
+            $table->string('username');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateStoreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('flowers');
+        Schema::dropIfExists('users');
     }
 }

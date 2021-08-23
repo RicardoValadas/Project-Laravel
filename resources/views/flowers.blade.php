@@ -13,7 +13,7 @@
         @endif
         @foreach ($flowers as $f)
             {{-- comment usar o @ para fazer coisas como no angular ngFor --}}
-            <p>Name : {{ $f->name }} and Price : {{ $f->price }} <a
+            <p>Name : {{ $f->name }} and Price : {{ $f->priceFormatted }} <a
                     href="{{ route('update.flower', [$f->id]) }}">Edit</a>
                 <a href="{{ route('delete.flower', [$f->id]) }}">Delete</a>
                 <a href="{{ route('flower.detail', [$f->id]) }}">Detail</a>

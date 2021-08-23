@@ -4,6 +4,7 @@ use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\FlowerController;
+use App\Http\Controllers\RegisterController;
 
 
 
@@ -30,7 +31,7 @@ route::get('/movies/{id}', [MovieController::class, 'one_movie']);
 
 //routes para criar paginas e posso usar uma function que esta depois de class,
 route::get('/', [FlowerController::class, 'index']);
-route::get('/flower', [FlowerController::class, 'index']);
+route::get('/flower', [FlowerController::class, 'index'])->name('flowers');
 
 
 route::get('/new-flower', [FlowerController::class, 'create']);
@@ -47,4 +48,14 @@ Route::get('/delete/flower/{id}', [FlowerController::class, 'destroy'])->name('d
 Route::get('/flower-detail/{id}', [FlowerController::class, 'show'])->name('flower.detail');
 //API
 route::get('/api', [ApiController::class, 'getFlowers']);
-Route::get('/api/detail', [ApiController::class, 'getType']);
+Route::get('/api/get-flower/{id}', [ApiController::class, 'getFlower']);
+Route::get('/api/get-detail/{type}', [ApiController::class, 'getType']);
+Route::get('/api/get-flowers/{amount}', [ApiController::class, 'getSomeFlowers']);
+
+//ajax calls
+route::get('/new-flower', [FlowerController::class, 'ajaxForm'])->name('show.ajax.form');
+route::post('/new-flower', [FlowerController::class, 'ajaxAnswer'])->name('submit.ajax.form');
+
+//register
+route::get('/register', [RegisterController::class, 'index'])->name('register-page');
+route::post('/register', [RegisterController::class, 'store'])->name('register-success');

@@ -137,4 +137,33 @@ class FlowerController extends Controller
         // redirect to flowers list with a message
         return redirect('flowers')->with('success', 'Flower deleted');
     }
+
+    public function ajaxForm()
+    {
+        return view('new-flower');
+    }
+
+    public function ajaxAnswer(Request $request)
+    {
+        $validations = Validator::make($request->all(), [
+            'flower' => 'required|max:50',
+            'price' => 'required',
+        ]);
+
+        $fileName = $request->file->getClientOriginalName();
+        $public_path = public_path('uploads');
+
+        $request->file->move($public_path, $fileName);
+
+        $flower = new Flower;
+        $flower->name = $request->flower;
+        $flower->price = $request->price;
+        $flower->image = $fileName;
+        $flower->save();
+
+        if ($validations->fails())
+            return response()->json(['errors' => $validations->errors()->all()]);
+
+        return response()->json(['success' => 'Flower added']);
+    }
 }

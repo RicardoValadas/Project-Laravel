@@ -10,10 +10,15 @@ class Flower extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['name', 'price'];
+    protected $fillable = ['name', 'price', 'columns'];
 
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function getPriceFormattedAttribute()
+    {
+        return $this->attributes['price'] . '€';
     }
 }
