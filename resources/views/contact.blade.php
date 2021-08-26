@@ -1,5 +1,5 @@
 @extends('layouts.mytemplate')
-@section('css', '/public/css/app.css')
+
 
 @section('Title', 'Contact Page')
 @section('content')

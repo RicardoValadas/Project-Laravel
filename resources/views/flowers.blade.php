@@ -3,13 +3,16 @@
     <link rel="stylesheet" href="/css/flower.css">
 @endsection()
 @section('flowers')
+    @if ($username = Session::get('username'))
+        <p style="color:white">Welcome: {{ $username }}</p>
+    @endif
     <h1 class="display-1">FLOWERS PAGE</h1>
     <hr>
     @if (count($flowers) > 0)
         <h1 class="display-6">We have some flowers :)</h1>
 
         @if ($message = Session::get('success'))
-            <p style="color:green">{{ $message }}</p>
+            <p style="color:white">{{ $message }}</p>
         @endif
         @foreach ($flowers as $f)
             {{-- comment usar o @ para fazer coisas como no angular ngFor --}}

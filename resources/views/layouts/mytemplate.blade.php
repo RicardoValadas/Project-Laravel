@@ -18,8 +18,11 @@
 
 
 <body class="p-3 mb-2 text-dark">
+
     @include('layouts.nav')
+    @yield('login')
     @yield('register')
+    @yield('content')
     @yield('flower-detail')
     @yield('flowers')
     @yield('form')

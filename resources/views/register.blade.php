@@ -14,17 +14,19 @@
         </div>
         <div class="mb-3">
             <label class="form-label" for="email">Email </label>
-            <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}">
+            <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}"
+                placeholder="Email">
         </div>
 
         <div class="mb-3">
             <label class="form-label" for="password">Password </label>
-            <input type="password" class="form-control" name="password" id="password">
+            <input type="password" class="form-control" name="password" id="password" placeholder="password">
         </div>
 
         <div class="mb-3">
             <label class="form-label" for="password_confirm">Password </label>
-            <input type="password" class="form-control" name="password_confirmation" id="password_confirm">
+            <input type="password" class="form-control" name="password_confirmation" id="password_confirm"
+                placeholder="password">
         </div>
 
         <div class="col-12">

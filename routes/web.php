@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\FlowerController;
 use App\Http\Controllers\RegisterController;
-
+use App\Http\Middleware\EnsureUserIsLoggedIn;
 
 
 /*
@@ -59,3 +59,10 @@ route::post('/new-flower', [FlowerController::class, 'ajaxAnswer'])->name('submi
 //register
 route::get('/register', [RegisterController::class, 'index'])->name('register-page');
 route::post('/register', [RegisterController::class, 'store'])->name('register-success');
+
+//login
+route::get('/login', [RegisterController::class, 'loginPage'])->name('login');
+route::post('/login', [RegisterController::class, 'login'])->name('login.send');
+
+//middleware
+route::get('/secret', [RegisterController::class, 'secret'])->middleware(EnsureUserIsLoggedin::class);
